@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Enhanced Intelligence - AI Learning & Development</title>
+    <meta name="description" content="Comprehensive AI education programs including aptitude testing, leadership training, hands-on labs, and certification courses. Empowering humanity for the AI revolution.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --silver: #c0c0c0;
+            --dark-silver: #808080;
+            --light-silver: #e8e8e8;
+            --glow: rgba(192, 192, 192, 0.3);
+            --cyan: #0891b2;
+            --dark-cyan: #0e7490;
+            --light-cyan: #22d3ee;
+            --code-bg: #0a0a0a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 5%;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 20px;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 7vw, 84px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--white), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(24px, 3vw, 32px);
+            color: var(--silver);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 20px;
+            color: var(--silver);
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button.primary {
+            background: var(--cyan);
+            color: var(--white);
+        }
+
+        .hero-button.primary:hover {
+            background: var(--dark-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 145, 178, 0.3);
+        }
+
+        .hero-button.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .hero-button.secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Custom Icon Styles */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+            width: 80px;
+            height: 80px;
+        }
+
+        .floating-element svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--cyan);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 10s;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: var(--silver);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Test Feature Section */
+        .test-features {
+            background: #0a0a0a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--cyan), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-card:hover {
+            background: rgba(8, 145, 178, 0.05);
+            transform: translateY(-5px);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(8, 145, 178, 0.1);
+            border: 2px solid var(--cyan);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding: 15px;
+        }
+
+        .feature-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--cyan);
+        }
+
+        .feature-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .feature-card p {
+            color: var(--silver);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Skill Levels Section */
+        .skill-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .skill-level {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .skill-level:hover {
+            background: rgba(8, 145, 178, 0.05);
+            transform: translateY(-5px);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .level-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--cyan);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .skill-level h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .skill-level p {
+            color: var(--silver);
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .skill-percentage {
+            font-size: 14px;
+            color: var(--cyan);
+            margin-top: 15px;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, transparent 100%);
+            padding: 80px 5%;
+            margin: 80px auto;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .use-case {
+            display: flex;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .use-case-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(8, 145, 178, 0.1);
+            border: 2px solid var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 15px;
+        }
+
+        .use-case-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--cyan);
+        }
+
+        .use-case-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .use-case-content p {
+            color: var(--silver);
+            line-height: 1.8;
+        }
+
+        /* Test Demo Section */
+        .test-demo {
+            background: var(--code-bg);
+            padding: 80px;
+            margin: 80px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-screen {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--cyan);
+            border-radius: 10px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .demo-screen::before {
+            content: '● ● ●';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: var(--cyan);
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+
+        .sample-question {
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .sample-question h4 {
+            font-size: 20px;
+            color: var(--cyan);
+            margin-bottom: 20px;
+        }
+
+        .sample-options {
+            list-style: none;
+        }
+
+        .sample-options li {
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .sample-options li:hover {
+            background: rgba(8, 145, 178, 0.1);
+            border-color: var(--cyan);
+            transform: translateX(10px);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .resource-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            background: rgba(8, 145, 178, 0.05);
+            transform: translateY(-5px);
+            border-color: rgba(8, 145, 178, 0.3);
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resource-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .resource-card p {
+            color: var(--silver);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .resource-link {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            text-align: center;
+            padding: 80px 5%;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-box {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            background: rgba(8, 145, 178, 0.05);
+            border-color: rgba(8, 145, 178, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--cyan);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--silver);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(8, 145, 178, 0.05) 100%);
+            padding: 100px 5%;
+            text-align: center;
+            border: 1px solid rgba(8, 145, 178, 0.2);
+            margin: 100px auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.3;
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(36px, 5vw, 56px);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--white), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 22px;
+            color: var(--silver);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 5%;
+            background: var(--black);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--silver);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-case-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .test-demo {
+                padding: 40px 20px;
+            }
+
+            .floating-element {
+                display: none;
+            }
+        }
+
+        /* Glow Effect */
+        .glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(8, 145, 178, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Glow Effect -->
+    <div class="glow" id="glow"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Enhanced Intelligence</a>
+            <ul class="nav-links">
+                <li><a href="index.html#vision">Vision</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="education.html" class="active">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-element" style="top: 20%; left: 10%;">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L2 9V21H9V14H15V21H22V9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="floating-element" style="top: 60%; right: 15%;">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="floating-element" style="bottom: 20%; left: 20%;">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Education</h1>
+            <p class="subtitle">Empowering humanity for the AI revolution</p>
+            <p class="description">From aptitude testing to hands-on training, we're building the educational infrastructure for an AI-powered future. Equip yourself, your team, and your organization with the knowledge to thrive.</p>
+            <div class="hero-buttons">
+                <a href="#offerings" class="hero-button primary">Explore Programs</a>
+                <a href="#resources" class="hero-button secondary">Free Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Philosophy Section -->
+    <section class="philosophy" style="background: #0a0a0a; padding: 80px 5%;">
+        <div class="section-header fade-in">
+            <h2>Our Educational Mission</h2>
+            <p>Democratizing AI knowledge for a more equitable future</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; margin-top: 60px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+            <div class="fade-in" style="text-align: center;">
+                <div class="icon" style="width: 80px; height: 80px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M2 12C2 12 5 19 12 19C19 19 22 12 22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 24px; color: var(--white); margin-bottom: 15px;">Accessible to All</h3>
+                <p style="color: var(--silver); line-height: 1.8;">AI education shouldn't be limited to tech elites. Our programs are designed for everyone—from students to seniors, from artists to accountants.</p>
+            </div>
+            
+            <div class="fade-in" style="text-align: center;">
+                <div class="icon" style="width: 80px; height: 80px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12L5 10M5 10L12 3L19 10M5 10V20C5 20.5523 5.44772 21 6 21H9M19 10L21 12M19 10V20C19 20.5523 18.5523 21 18 21H15M9 21C9.55228 21 10 20.5523 10 20V16C10 15.4477 10.4477 15 11 15H13C13.5523 15 14 15.4477 14 16V20C14 20.5523 14.4477 21 15 21M9 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 3L12 8M12 8L10 6M12 8L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 24px; color: var(--white); margin-bottom: 15px;">Continuously Evolving</h3>
+                <p style="color: var(--silver); line-height: 1.8;">AI changes daily. Our curriculum updates in real-time, ensuring you're always learning the most relevant and impactful skills.</p>
+            </div>
+            
+            <div class="fade-in" style="text-align: center;">
+                <div class="icon" style="width: 80px; height: 80px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C14.7614 2 17 4.23858 17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7C7 4.23858 9.23858 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 22C20 17.5817 16.4183 14 12 14C7.58172 14 4 17.5817 4 22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="7" r="1" fill="currentColor"/>
+                        <path d="M12 12L14.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 12L9.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 style="font-size: 24px; color: var(--white); margin-bottom: 15px;">Human-Centered</h3>
+                <p style="color: var(--silver); line-height: 1.8;">We teach AI as a tool for human enhancement, not replacement. Focus on collaboration, creativity, and ethical implementation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Offerings Section -->
+    <section class="offerings" id="offerings">
+        <div class="section-header fade-in">
+            <h2>Our Educational Ecosystem</h2>
+            <p>Comprehensive programs designed to accelerate AI adoption at every level</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 9H21" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 9V21" stroke="currentColor" stroke-width="2"/>
+                        <path d="M7 13L11 17L17 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>AI Aptitude Test</h3>
+                <p>Dynamic assessment tool that measures and certifies AI readiness. Used by 200+ organizations to identify talent and guide training investments. Continuously updated to reflect the latest AI capabilities.</p>
+                <a href="#aptitude-test" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Learn More →</a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>AI Leadership Academy</h3>
+                <p>Executive education program for C-suite and senior leaders. Learn to drive AI transformation, navigate ethical considerations, and build AI-first cultures. 12-week intensive with peer cohorts.</p>
+                <a href="#academy" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Apply Now →</a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V7L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 2V7H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M9 14H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Hands-On AI Labs</h3>
+                <p>Practical workshops where teams learn by building. From prompt engineering to workflow automation, get hands-on experience with real tools solving real problems. Available on-site or virtual.</p>
+                <a href="#labs" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Book Workshop →</a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 19.5C4 19.5 4 16.5 4 14.5C4 12.5 5.5 11 7.5 11H16.5C18.5 11 20 12.5 20 14.5C20 16.5 20 19.5 20 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 7H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 11L8 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M16 11L16 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>AI Literacy Courses</h3>
+                <p>Self-paced online courses covering AI fundamentals, practical applications, and industry-specific use cases. From 2-hour primers to 40-hour certifications. Accessible to all skill levels.</p>
+                <a href="#courses" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Browse Catalog →</a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M16 7V5C16 3.89543 15.1046 3 14 3H10C8.89543 3 8 3.89543 8 5V7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 11V17" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 14H15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Enterprise Training</h3>
+                <p>Custom AI education programs tailored to your organization's needs. Skill gap analysis, curriculum design, and ongoing support to ensure successful AI adoption across all departments.</p>
+                <a href="#enterprise" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Get Proposal →</a>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 12L10 14L16 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>AI Ethics Certification</h3>
+                <p>Specialized program on responsible AI development and deployment. Cover bias detection, transparency, privacy, and governance. Becoming the industry standard for ethical AI practitioners.</p>
+                <a href="#ethics" class="resource-link" style="color: var(--cyan); text-decoration: none; font-weight: 600; display: inline-block; margin-top: 20px;">Start Path →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Aptitude Test Detail Section -->
+    <section class="test-features" id="aptitude-test">
+        <div class="section-header fade-in">
+            <h2>AI Aptitude Test</h2>
+            <p>The industry standard for measuring AI readiness</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L12 12L20 8L12 22L12 12L4 16L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2"/>
+                    </svg>
+                </div>
+                <h3>Dynamic & Evolving</h3>
+                <p>Our test updates continuously as AI capabilities advance. What's cutting-edge today becomes baseline tomorrow. Stay ahead of the curve with assessments that reflect the real state of AI.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                        <path d="M12 2V6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 18V22" stroke="currentColor" stroke-width="2"/>
+                        <path d="M2 12H6" stroke="currentColor" stroke-width="2"/>
+                        <path d="M18 12H22" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Multi-Dimensional Assessment</h3>
+                <p>Beyond technical knowledge—we measure prompt engineering, tool selection, ethical reasoning, creative application, and strategic thinking. A complete picture of AI aptitude.</p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 12V17" stroke="currentColor" stroke-width="2"/>
+                        <path d="M7 9.5V14.5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M17 9.5V14.5" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Personalized Learning Path</h3>
+                <p>Every test result includes a custom roadmap to improve your AI skills. Targeted resources, practice scenarios, and skill-building exercises tailored to your current level.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Levels Section -->
+    <section class="levels">
+        <div class="section-header fade-in">
+            <h2>AI Aptitude Levels</h2>
+            <p>Clear benchmarks for AI proficiency in the modern workplace</p>
+        </div>
+
+        <div class="skill-levels fade-in">
+            <div class="skill-level">
+                <div class="level-number">1</div>
+                <h4>AI Aware</h4>
+                <p>Understands basic AI concepts and can use simple tools like ChatGPT for basic tasks.</p>
+                <div class="skill-percentage">~60% of workforce</div>
+            </div>
+
+            <div class="skill-level">
+                <div class="level-number">2</div>
+                <h4>AI Capable</h4>
+                <p>Effectively prompts AI, understands limitations, and integrates AI into daily workflows.</p>
+                <div class="skill-percentage">~25% of workforce</div>
+            </div>
+
+            <div class="skill-level">
+                <div class="level-number">3</div>
+                <h4>AI Fluent</h4>
+                <p>Advanced prompt engineering, multi-tool orchestration, and strategic AI implementation.</p>
+                <div class="skill-percentage">~10% of workforce</div>
+            </div>
+
+            <div class="skill-level">
+                <div class="level-number">4</div>
+                <h4>AI Native</h4>
+                <p>Designs AI systems, trains models, and creates new AI-powered solutions and workflows.</p>
+                <div class="skill-percentage">~5% of workforce</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases">
+        <div class="section-header fade-in">
+            <h2>Who Uses the AI Aptitude Test?</h2>
+            <p>Transforming how organizations approach AI readiness</p>
+        </div>
+
+        <div class="use-case-grid fade-in">
+            <div class="use-case">
+                <div class="use-case-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 7V5C8 3.89543 8.89543 3 10 3H14C14 3 16 3 16 5V7" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 12V16" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                        <path d="M9 16H15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="use-case-content">
+                    <h3>HR & Talent Teams</h3>
+                    <p>Screen candidates for AI-integrated roles. Identify which employees are ready for AI-powered positions and who needs training. Make data-driven hiring decisions.</p>
+                </div>
+            </div>
+
+            <div class="use-case">
+                <div class="use-case-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10V16C22 18.2091 20.2091 20 18 20H6C3.79086 20 2 18.2091 2 16V10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 15V20" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 15L7 10L2 10L12 2L22 10L17 10L12 15Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="use-case-content">
+                    <h3>Educational Institutions</h3>
+                    <p>Assess student AI readiness before graduation. Design curriculum that addresses skill gaps. Track progress as AI capabilities evolve.</p>
+                </div>
+            </div>
+
+            <div class="use-case">
+                <div class="use-case-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-dasharray="2 2" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="use-case-content">
+                    <h3>Training Programs</h3>
+                    <p>Qualify applicants for AI bootcamps and certifications. Measure learning outcomes. Ensure graduates meet industry standards.</p>
+                </div>
+            </div>
+
+            <div class="use-case">
+                <div class="use-case-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M6 21V19C6 17.8954 6.89543 17 8 17H16C17.1046 17 18 17.8954 18 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 12L12 14" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 8L8 10" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                        <path d="M16 8L16 10" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="use-case-content">
+                    <h3>Individual Professionals</h3>
+                    <p>Benchmark your AI skills against industry standards. Get certified proof of capabilities. Identify areas for growth and advancement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Demo Section -->
+    <section class="test-demo" id="demo">
+        <div class="section-header fade-in">
+            <h2>Experience the Test</h2>
+            <p>See how we measure real-world AI aptitude</p>
+        </div>
+
+        <div class="demo-screen fade-in">
+            <div class="sample-question">
+                <h4>Sample Question: Prompt Engineering</h4>
+                <p style="color: var(--silver); margin-bottom: 20px;">
+                    You need to use AI to analyze customer feedback and identify the top 3 issues. 
+                    Which prompt would yield the most actionable results?
+                </p>
+                <ul class="sample-options">
+                    <li>A) "Analyze this customer feedback"</li>
+                    <li>B) "What are customers complaining about?"</li>
+                    <li>C) "Review the attached feedback data and identify the 3 most frequent issues, their severity scores, and suggest prioritized solutions with implementation timelines"</li>
+                    <li>D) "Find problems in feedback and fix them"</li>
+                </ul>
+            </div>
+            <p style="color: var(--cyan); margin-top: 30px;">
+                The full test includes 50+ adaptive questions across 8 competency areas
+            </p>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <div class="section-header fade-in">
+            <h2>Free Learning Resources</h2>
+            <p>Start your AI education journey today with our open-access materials</p>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 7H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>AI Fundamentals Course</h3>
+                <p>Master the basics of AI, machine learning, and practical applications in 30 days.</p>
+                <a href="#" class="resource-link">Start Learning →</a>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.7 6.3C14.5 5.6 13.8 5 13 5C11.9 5 11 5.9 11 7V13C11 14.1 11.9 15 13 15C13.8 15 14.5 14.4 14.7 13.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M9 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M7 8L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Prompt Engineering Lab</h3>
+                <p>Interactive exercises to perfect your prompting skills across different AI models.</p>
+                <a href="#" class="resource-link">Practice Now →</a>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2H6C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V8L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 2V8H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 12L14 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M14 12L10 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Industry AI Playbooks</h3>
+                <p>Sector-specific guides for implementing AI in healthcare, finance, retail, and more.</p>
+                <a href="#" class="resource-link">Download Guides →</a>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-dasharray="1 1"/>
+                    </svg>
+                </div>
+                <h3>Certification Prep</h3>
+                <p>Comprehensive preparation materials for the official AI Aptitude Certification.</p>
+                <a href="#" class="resource-link">Get Certified →</a>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="9" cy="9" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M3 20V18C3 16.8954 3.89543 16 5 16H13C14.1046 16 15 16.8954 15 18V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="17" cy="11" r="3" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 20V19C21 17.8954 20.1046 17 19 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Community Forum</h3>
+                <p>Connect with AI practitioners, share strategies, and learn from real implementations.</p>
+                <a href="#" class="resource-link">Join Community →</a>
+            </div>
+
+            <div class="resource-card fade-in">
+                <div class="resource-icon icon" style="width: 60px; height: 60px; margin: 0 auto 20px; color: var(--cyan);">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 12L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 8L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M16 10L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M3 8H21" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>AI Readiness Report</h3>
+                <p>Annual industry benchmark report on AI adoption and skill requirements.</p>
+                <a href="#" class="resource-link">View Report →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="section-header fade-in">
+            <h2>Educational Impact</h2>
+        </div>
+
+        <div class="stats-grid fade-in">
+            <div class="stat-box">
+                <div class="stat-number">100K+</div>
+                <div class="stat-label">Learners Trained</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Partner Organizations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Career Advancement</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="get-started">
+        <div class="cta-content">
+            <h2>Start Your AI Education Journey</h2>
+            <p>Whether you're an individual looking to upskill or an organization preparing for the future, we have the right program for you</p>
+            <div class="hero-buttons">
+                <a href="mailto:education @enhancedint.com?subject=AI%20Education%20Programs%20Inquiry" class="hero-button primary">Explore Programs</a>
+                <a href="#resources" class="hero-button secondary">Access Free Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:education @enhancedint.com">education@enhancedint.com</a>
+                <a href="/curriculum">Full Curriculum</a>
+                <a href="/instructors">Our Instructors</a>
+                <a href="/partners">Become a Partner</a>
+            </div>
+            <p class="copyright">© 2025 Enhanced Intelligence. Empowering humanity for the AI revolution.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Glow effect following cursor
+        const glow = document.getElementById('glow');
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
+            
+            glow.style.left = currentX + 'px';
+            glow.style.top = currentY + 'px';
+            
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Hide glow on mobile
+        if (window.innerWidth <= 768) {
+            glow.style.display = 'none';
+        }
+
+        // Animate stats on scroll
+        const stats = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalValue = target.textContent;
+                    const isPercentage = finalValue.includes('%');
+                    const isMultiplier = finalValue.includes('x');
+                    const isThousands = finalValue.includes('K');
+                    const isPlus = finalValue.includes('+');
+                    
+                    let numericValue = parseFloat(finalValue.replace(/[^0-9.]/g, ''));
+                    let prefix = '';
+                    let suffix = '';
+                    
+                    if (isThousands) {
+                        suffix = 'K';
+                        if (isPlus) suffix += '+';
+                    } else if (isPercentage) {
+                        suffix = '%';
+                    } else if (isMultiplier) {
+                        suffix = 'x';
+                    } else if (isPlus) {
+                        suffix = '+';
+                    }
+                    
+                    let current = 0;
+                    const increment = numericValue / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numericValue) {
+                            current = numericValue;
+                            clearInterval(timer);
+                        }
+                        
+                        if (isMultiplier) {
+                            target.textContent = current.toFixed(1) + suffix;
+                        } else {
+                            target.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 30);
+                    
+                    statsObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        stats.forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Sample test interaction
+        document.querySelectorAll('.sample-options li').forEach((option, index) => {
+            option.addEventListener('click', function() {
+                // Remove previous selections
+                document.querySelectorAll('.sample-options li').forEach(opt => {
+                    opt.style.background = 'rgba(255, 255, 255, 0.02)';
+                    opt.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                });
+                
+                // Highlight selected
+                this.style.background = 'rgba(8, 145, 178, 0.2)';
+                this.style.borderColor = 'var(--cyan)';
+                
+                // Show feedback for option C (correct answer)
+                if (index === 2) {
+                    setTimeout(() => {
+                        this.style.background = 'rgba(8, 145, 178, 0.3)';
+                        this.innerHTML = this.innerHTML + ' <span style="color: var(--cyan); float: right;">✓ Correct</span>';
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
